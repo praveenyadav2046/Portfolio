@@ -1,0 +1,480 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praveen Yadav - Full Stack Developer</title>
+    <meta name="description" content="Full-Stack Developer Portfolio - Praveen Yadav">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Terminal Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="terminal">
+            <div class="terminal-header">
+                <span class="terminal-dot red"></span>
+                <span class="terminal-dot yellow"></span>
+                <span class="terminal-dot green"></span>
+                <span class="terminal-title">praveen@portfolio:~$</span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-line">
+                    <span class="prompt">$</span>
+                    <span class="command" id="loadingCommand"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <div class="loading-progress">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="code-bracket">&lt;</span>
+                    <span class="logo-text">Praveen</span>
+                    <span class="code-bracket">/&gt;</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="nav-menu">
+                    <button data-section="home" class="nav-link">
+                        <span class="nav-number">01.</span>
+                        <span>Home</span>
+                    </button>
+                    <button data-section="about" class="nav-link">
+                        <span class="nav-number">02.</span>
+                        <span>About</span>
+                    </button>
+                    <button data-section="projects" class="nav-link">
+                        <span class="nav-number">03.</span>
+                        <span>Projects</span>
+                    </button>
+                    <button data-section="contact" class="nav-link">
+                        <span class="nav-number">04.</span>
+                        <span>Contact</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <button data-section="home" class="mobile-nav-link">01. Home</button>
+                <button data-section="about" class="mobile-nav-link">02. About</button>
+                <button data-section="projects" class="mobile-nav-link">03. Projects</button>
+                <button data-section="contact" class="mobile-nav-link">04. Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Background Pattern -->
+    <div class="bg-pattern"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="console-output">
+                    <div class="output-line">
+                        <span class="prompt">$</span>
+                        <span class="command">whoami</span>
+                    </div>
+                    <div class="output-result">Praveen Yadav</div>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">
+                        <span class="code-comment">// Full-Stack Developer</span>
+                    </span>
+                    <span class="title-line glitch" data-text="Creative Problem Solver">
+                        Creative Problem Solver
+                    </span>
+                </h1>
+
+                <div class="hero-code">
+                    <div class="code-block">
+                        <span class="code-keyword">const</span> 
+                        <span class="code-variable">developer</span> 
+                        <span class="code-operator">=</span> 
+                        <span class="code-bracket">{</span><br>
+                        &nbsp;&nbsp;<span class="code-property">name</span><span class="code-operator">:</span> 
+                        <span class="code-string">"Praveen Yadav"</span><span class="code-operator">,</span><br>
+                        &nbsp;&nbsp;<span class="code-property">skills</span><span class="code-operator">:</span> 
+                        <span class="code-bracket">[</span><span class="code-string">"React"</span><span class="code-operator">,</span> 
+                        <span class="code-string">"Node.js"</span><span class="code-operator">,</span> 
+                        <span class="code-string">"TypeScript"</span><span class="code-bracket">]</span><span class="code-operator">,</span><br>
+                        &nbsp;&nbsp;<span class="code-property">passion</span><span class="code-operator">:</span> 
+                        <span class="code-string">"Building amazing experiences"</span><br>
+                        <span class="code-bracket">}</span>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <button class="btn-primary" data-section="projects">
+                        <span class="btn-text">View Projects</span>
+                        <span class="btn-icon">→</span>
+                    </button>
+                    <button class="btn-secondary" data-section="contact">
+                        <span class="btn-text">Get In Touch</span>
+                        <span class="btn-icon">📧</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <div class="editor-tabs">
+                            <div class="tab active">portfolio.js</div>
+                            <div class="tab">about.md</div>
+                            <div class="tab">contact.tsx</div>
+                        </div>
+                    </div>
+                    <div class="editor-content" id="codeEditor">
+                        <div class="line-numbers">
+                            <span>1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                        </div>
+                        <div class="code-content">
+                            <div class="code-line" id="codeLine1"></div>
+                            <div class="code-line" id="codeLine2"></div>
+                            <div class="code-line" id="codeLine3"></div>
+                            <div class="code-line" id="codeLine4"></div>
+                            <div class="code-line" id="codeLine5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="floating-elements">
+            <div class="floating-code">{ }</div>
+            <div class="floating-code">&lt;/&gt;</div>
+            <div class="floating-code">npm</div>
+            <div class="floating-code">git</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">02.</div>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">About.md</span>
+                        </div>
+                        <div class="terminal-content">
+                            <p>
+                                <span class="markdown-header"># About Me</span><br><br>
+                                I'm a passionate full-stack developer with <span class="highlight">5+ years</span> 
+                                of experience creating modern web applications. I specialize in building 
+                                <span class="highlight">scalable</span>, <span class="highlight">user-friendly</span> 
+                                solutions that solve real-world problems.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-matrix">
+                    <div class="matrix-header">
+                        <span class="matrix-title">Skills Matrix</span>
+                        <span class="status-indicator online">● Online</span>
+                    </div>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <span class="skill-icon">⚛️</span>
+                                <span class="skill-name">Frontend</span>
+                                <span class="skill-level">95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                            <div class="skill-tech">React, TypeScript, Next.js</div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <span class="skill-icon">⚙️</span>
+                                <span class="skill-name">Backend</span>
+                                <span class="skill-level">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                            <div class="skill-tech">Node.js, Express, PostgreSQL</div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <span class="skill-icon">🎨</span>
+                                <span class="skill-name">Design</span>
+                                <span class="skill-level">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                            <div class="skill-tech">Figma, Tailwind, CSS</div>
+                        </div>
+
+                        <div class="skill-card">
+                            <div class="skill-header">
+                                <span class="skill-icon">☁️</span>
+                                <span class="skill-name">DevOps</span>
+                                <span class="skill-level">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                            <div class="skill-tech">AWS, Docker, CI/CD</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">03.</div>
+                <h2 class="section-title">Projects</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-window">
+                        <div class="project-header">
+                            <div class="window-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                            <span class="project-url">localhost:3000/ecommerce</span>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=400&fit=crop&crop=center" alt="E-commerce Platform">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3 class="project-title">E-commerce Platform</h3>
+                                    <p class="project-description">
+                                        Modern e-commerce solution with advanced features and seamless UX
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">Node.js</span>
+                                        <span class="tech-tag">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com" target="_blank" class="project-link">
+                            <span>GitHub</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="https://example.com" target="_blank" class="project-link">
+                            <span>Live Demo</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-window">
+                        <div class="project-header">
+                            <div class="window-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                            <span class="project-url">localhost:3000/taskapp</span>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=600&h=400&fit=crop&crop=center" alt="Task Management App">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3 class="project-title">Task Management App</h3>
+                                    <p class="project-description">
+                                        Collaborative project management with real-time updates
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">Vue.js</span>
+                                        <span class="tech-tag">Express</span>
+                                        <span class="tech-tag">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com" target="_blank" class="project-link">
+                            <span>GitHub</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="https://example.com" target="_blank" class="project-link">
+                            <span>Live Demo</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-window">
+                        <div class="project-header">
+                            <div class="window-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                            <span class="project-url">localhost:3000/weather</span>
+                        </div>
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?w=600&h=400&fit=crop&crop=center" alt="Weather Dashboard">
+                            <div class="project-overlay">
+                                <div class="project-info">
+                                    <h3 class="project-title">Weather Dashboard</h3>
+                                    <p class="project-description">
+                                        Interactive weather app with detailed forecasts
+                                    </p>
+                                    <div class="tech-stack">
+                                        <span class="tech-tag">React</span>
+                                        <span class="tech-tag">TypeScript</span>
+                                        <span class="tech-tag">API</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com" target="_blank" class="project-link">
+                            <span>GitHub</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                        <a href="https://example.com" target="_blank" class="project-link">
+                            <span>Live Demo</span>
+                            <span class="link-arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-number">04.</div>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-terminal">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">contact.sh</span>
+                        </div>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="prompt">$</span>
+                                <span class="command">cat contact_info.json</span>
+                            </div>
+                            <div class="contact-json">
+                                <span class="code-bracket">{</span><br>
+                                &nbsp;&nbsp;<span class="code-property">"email"</span><span class="code-operator">:</span>
+                                <span class="code-string">"praveen.yadav@example.com"</span><span class="code-operator">,</span><br>
+                                &nbsp;&nbsp;<span class="code-property">"phone"</span><span class="code-operator">:</span>
+                                <span class="code-string">"+91 (999) 888-7777"</span><span class="code-operator">,</span><br>
+                                &nbsp;&nbsp;<span class="code-property">"location"</span><span class="code-operator">:</span>
+                                <span class="code-string">"India"</span><span class="code-operator">,</span><br>
+                                &nbsp;&nbsp;<span class="code-property">"status"</span><span class="code-operator">:</span>
+                                <span class="code-string">"available_for_hire"</span><br>
+                                <span class="code-bracket">}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h3 class="form-title">Send Message</h3>
+                        <div class="form-status">
+                            <span class="status-dot"></span>
+                            <span>Ready to receive</span>
+                        </div>
+                    </div>
+                    
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-group">
+                            <label for="name" class="form-label">
+                                <span class="label-text">Name</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">
+                                <span class="label-text">Email</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">
+                                <span class="label-text">Message</span>
+                                <span class="label-required">*</span>
+                            </label>
+                            <textarea id="message" name="message" rows="4" class="form-textarea" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading" id="btnLoading">Processing...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
