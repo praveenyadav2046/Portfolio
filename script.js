@@ -1,4 +1,3 @@
-
 // Global variables
 let isScrolled = false;
 let isMobileMenuOpen = false;
@@ -194,47 +193,48 @@ function initializeCodeEditor() {
         'import { useState } from "react";',
         '',
         'const Portfolio = () => {',
-        '  return <div>Hello World!</div>;'
+        '  return <div>Hello World!</div>;',
+        '};',
+        '',
+        'export default Portfolio;'
     ];
     
-    const codeElements = [
-        document.getElementById('codeLine1'),
-        document.getElementById('codeLine2'),
-        document.getElementById('codeLine3'),
-        document.getElementById('codeLine4'),
-        document.getElementById('codeLine5')
-    ];
+    const codeElements = document.querySelectorAll('.code-line');
+    let currentLine = 0;
+    let currentChar = 0;
     
-    function typeCodeLine(lineIndex, charIndex = 0) {
-        if (lineIndex >= codeLines.length) return;
+    function typeCode() {
+        if (currentLine >= codeLines.length) {
+            return;
+        }
         
-        const currentLine = codeLines[lineIndex];
-        const currentElement = codeElements[lineIndex];
+        const line = codeLines[currentLine];
+        const element = codeElements[currentLine];
         
-        if (!currentElement) return;
+        if (!element) return;
         
-        if (charIndex <= currentLine.length) {
-            currentElement.innerHTML = highlightSyntax(currentLine.slice(0, charIndex));
-            
-            if (charIndex < currentLine.length) {
-                setTimeout(() => typeCodeLine(lineIndex, charIndex + 1), 50);
-            } else {
-                setTimeout(() => typeCodeLine(lineIndex + 1), 300);
-            }
+        if (currentChar <= line.length) {
+            const text = line.substring(0, currentChar);
+            element.innerHTML = highlightSyntax(text);
+            currentChar++;
+            setTimeout(typeCode, 50);
+        } else {
+            currentLine++;
+            currentChar = 0;
+            setTimeout(typeCode, 200);
         }
     }
     
     function highlightSyntax(code) {
         return code
-            .replace(/import|from|const|return/g, '<span class="code-keyword">$&</span>')
-            .replace(/"[^"]*"/g, '<span class="code-string">$&</span>')
-            .replace(/React|useState|Portfolio/g, '<span class="code-variable">$&</span>')
-            .replace(/=/g, '<span class="code-operator">$&</span>')
-            .replace(/[{}()]/g, '<span class="code-bracket">$&</span>');
+            .replace(/(import|from|const|return|export|default)/g, '<span class="code-keyword">$1</span>')
+            .replace(/({|}|\(|\)|;|=>)/g, '<span class="code-bracket">$1</span>')
+            .replace(/"[^"]*"/g, '<span class="code-string">$1</span>')
+            .replace(/\b(React|useState|Portfolio)\b(?!["'])/g, '<span class="code-variable">$1</span>');
     }
     
     // Start typing animation after a delay
-    setTimeout(() => typeCodeLine(0), 2000);
+    setTimeout(typeCode, 2000);
 }
 
 // Intersection Observer for scroll animations
